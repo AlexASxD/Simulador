@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <p><strong>idManoObra:   : </strong>{{ object.idManoObra }} </p>
+        <p><strong>concepto: </strong>{{ object.concepto }} </p>
+        <p><strong>salario base: </strong>{{ object.salario_base}} </p>
+        <p><strong>total de empleados: </strong>{{ object.total_empleados }} </p>
+        <p><strong>costo anual: </strong>{{ object.costo_anual }} </p>
+        <p><strong>datos de la empresa id empresa :</strong>{{ object.datos_empresa_id_empresa }} </p>
+
+
+
+        <a class= "btn" href="{% url 'manoObra:manoObra_listar' %}">Ok</a>
+        <a class= "btn blue" href="{% url 'manoObra:manoObra_editar' %}"><i class="material-icons">create</i></a>
+        <a class="btn red" href="{% url 'manoObra:manoObra_eliminar' object.idManoObra %}"><i class="material-icons">delete</i></a>
+    </div>
+</div>
+
+
+{% endblock %}

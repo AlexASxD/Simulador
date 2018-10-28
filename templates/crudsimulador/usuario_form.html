@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+            <form method="post">
+	            {% csrf_token %}
+	            {{ form.as_p }}
+	            <button class="btn-danger" type="submit">Guardar<i class="material-icons right">send</i></button>
+	            <a class= "btn-info" href="{% url  'usuario:usuario_listar' %}">Cancelar<i class="material-icons right">cancel</i></a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

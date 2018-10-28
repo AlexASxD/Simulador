@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 ml-auto mr-auto">
+        <p><strong>Id MOCV: </strong>{{ object.idmanoObraComisionesVenta }} </p>
+        <p><strong>Concepto: </strong>{{ object.concepto }} </p>
+        <p><strong>Ventas Mensuales: </strong>{{ object.ventas_mensuales }} </p>
+        <p><strong>Comision: </strong>{{ object.comision }} </p>
+        <p><strong>Total Empleados: </strong>{{ object.total_empleados }} </p>
+        <p><strong>Costo Anual: </strong>{{ object.costo_anual }} </p>
+        <p><strong>Datos Empresa Id Empresa: </strong>{{ object.datos_empresa_id_empresa }} </p>
+
+
+        <a class= "btn btn-danger" href="{% url 'mcomisiones:mocv_list' %}">Ok</a>
+        <a class= "btn btn-info" href="{% url 'mcomisiones:mocv_update' manoObraComisionesVenta.idmanoObraComisionesVenta %}"><i class="material-icons">create</i></a>
+        <a class="btn btn-success" href="{%  url 'mcomisiones:mocv_delete' manoObraComisionesVenta.idmanoObraComisionesVenta %}"><i class="material-icons">delete</i></a>
+    </div>
+</div>
+
+
+
+{% endblock %}

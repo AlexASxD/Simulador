@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <table class="striped">
+	        <thead>
+		        <tr>
+			        <td>idtipoGasto</td>
+			        <td>concepto</td>
+
+
+                </tr>
+            </thead>
+            <tbody>
+		        {% if object_list %}
+		        {% for tipoGastoOperativo in object_list %}
+		        <tr>
+			        <td>{{ tipoGastoOperativo.idtipoGasto }}</td>
+			        <td>{{ tipoGastoOperativo.concepto }}</td>
+
+
+			        <td>
+                        <a class="btn blue" href="{% url 'tipoGastoOperativo:tipoGastoOperativo_editar' tipoGastoOperativo.idtipoGasto %}"><i class="material-icons">create</i></a>
+                        <a class="btn red" href="{% url 'tipoGastoOperativo:tipoGastoOperativo_eliminar' tipoGastoOperativo.idtipoGasto %}"><i class="material-icons">delete</i></a>
+			        </td>
+		        </tr>
+		        {% endfor %}
+
+                {% else %}
+		            <h1>No hay registros de gasto operativo </h1>
+		        {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <ul class="pagination">
+	            <li>
+		        {% if page_obj.has_previous %}
+       	            <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+		        {% endif %}
+                </li>
+	            <li>
+		        {% if page_obj.has_next %}
+     	            <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+    	        {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock%}

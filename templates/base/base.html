@@ -1,0 +1,242 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Simulador</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- Material Kit CSS -->
+  <link href="{% static 'assets/css/material-kit.css' %}" rel="stylesheet" />
+     <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.min.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+<!-- Dropdown Structure -->
+                <ul id="dropdown1" class="dropdown-content">
+                    <label>Perfil Usuario</label>
+                    <li><a href="{% url 'perfil_usuario:perfil_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'perfil_usuario:perfil_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'perfil_usuario:perfil_listar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <label>Mano Obra Comisiones v.</label>
+                    <li><a href="{% url 'mcomisiones:mocv_create' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'mcomisiones:mocv_list' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'mcomisiones:mocv_search' %}"><i class="material-icons">search</i>Buscar</a></li>
+                </ul>
+
+                <ul id="dropdown2" class="dropdown-content">
+                    <label>Costos</label>
+                    <li><a href="{% url 'costos:costos_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'costos:costos_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'costos:costos_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <label>producto servicio</label>
+                    <li><a href="{% url 'producto:producto_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'producto:producto_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'producto:producto_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <label>tipo gastos</label>
+                    <li><a href="{% url 'gastos:gastos_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'gastos:gastos_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'gastos:gastos_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                </ul>
+
+                <ul id="dropdown3" class="dropdown-content">
+                    <label>Datos Empresa</label>
+                    <li><a href="{% url 'datos_empresa:datos_empresa_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'datos_empresa:datos_empresa_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'datos_empresa:datos_empresa_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <label>Mano Obra</label>
+                    <li><a href="{% url 'manoObra:manoObra_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'manoObra:manoObra_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'manoObra:manoObra_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <label>Concepto Crecimiento D.</label>
+                    <li><a href="{% url 'demanda:conceptoCrecimientoDemanda_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'demanda:conceptoCrecimientoDemanda_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'demanda:conceptoCrecimientoDemanda_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                </ul>
+
+                <ul id="dropdown4" class="dropdown-content">
+                    <label>Gastos</label>
+                    <li><a href="{% url 'gastoss:gastoss_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'gastoss:gastoss_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'gastoss:gastoss_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <label>Crecimiento Demanda</label>
+                    <li><a href="{% url 'crecimientoDemanda:crecimientoDemanda_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'crecimientoDemanda:crecimientoDemanda_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'crecimientoDemanda:crecimientoDemanda_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <label>Tipo Usuario</label>
+                    <li><a href="{% url 'tipoUsuario:tipoUsuario_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'tipoUsuario:tipoUsuario_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'tipoUsuario:tipoUsuario_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                </ul>
+
+                <ul id="dropdown5" class="dropdown-content">
+                    <label>estimacion servicios</label>
+                    <li><a href="{% url 'estimacion_servicios:estimacion_servicio_crear' %}"><i class="material-icons">create</i>Registrar Grupo</a></li>
+                    <li><a href="{% url 'estimacion_servicios:estimacion_servicio_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'estimacion_servicios:estimacion_servicio_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <label>tipo Gasto operativo</label>
+                    <li><a href="{% url 'tipoGastoOperativo:tipoGastoOperativo_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'tipoGastoOperativo:tipoGastoOperativo_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'tipoGastoOperativo:tipoGastoOperativo_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                </ul>
+
+                <ul id="dropdown6" class="dropdown-content">
+                    <label>Gastos Indirectos</label>
+                    <li><a href="{% url 'gastosIndirectos:gastosIndirectos_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'gastosIndirectos:gastosIndirectos_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'gastosIndirectos:gastosIndirectos_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <label>Usuario</label>
+                    <li><a href="{% url 'usuario:usuario_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'usuario:usuario_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'usuario:usuario_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <label>Tipos Gastos</label>
+                    <li><a href="{% url 'tiposGastos:tiposGastos_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'tiposGastos:tiposGastos_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'tiposGastos:tiposGastos_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                </ul>
+
+                <ul id="dropdown7" class="dropdown-content">
+                    <label>materia prima</label>
+                    <li><a href="{% url 'materiaPrima:materiaPrima_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'materiaPrima:materiaPrima_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'materiaPrima:materiaPrima_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <label>Estimacion Crecimiento</label>
+                    <li><a href="{% url 'estimacion:estimacion_crear' %}"><i class="material-icons">create</i>Registrar Localidad</a></li>
+                    <li><a href="{% url 'estimacion:estimacion_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'estimacion:estimacion_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <label>Tipo Inversiones</label>
+                    <li><a href="{% url 'tiposInversiones:tiposInversiones_crear' %}"><i class="material-icons">create</i>Registrar</a></li>
+                    <li><a href="{% url 'tiposInversiones:tiposInversiones_listar' %}"><i class="material-icons">list</i>Listar</a></li>
+                    <li><a href="{% url 'tiposInversiones:tiposInversiones_buscar' %}"><i class="material-icons">search</i>Buscar</a></li>
+                </ul>
+
+
+  <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="http://www.italtamirano.edu.mx/">
+          Instituto Tecnologico de Cd.Altamirano </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="page-header header-filter clear-filter purple-filter" data-parallax="true">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="brand text-center">
+            <h1>Simulador De Negocios</h1>
+            <h3 class="title text-center">Con Django</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="container">
+    <div class="row center">
+                <!-- Dropdown Structure -->
+                                         <!-- Dropdown Trigger -->
+            <a class="btn-large waves-effect waves-light blue lighten-1 dropdown-trigger" href='#' data-target='dropdown1'>Alex</a>
+            <a class="btn-large waves-effect waves-light blue lighten-1 dropdown-trigger" href="#" data-target="dropdown2">carmen</a>
+            <a class="btn-large waves-effect waves-light blue lighten-1 dropdown-trigger" href="#" data-target="dropdown3">Luis</a>
+            <a class="btn-large waves-effect waves-light blue lighten-1 dropdown-trigger" href="#" data-target="dropdown4">alan</a>
+            <a class="btn-large waves-effect waves-light blue lighten-1 dropdown-trigger" href="#" data-target="dropdown5">Ever</a>
+            <a class="btn-large waves-effect waves-light blue lighten-1 dropdown-trigger" href="#" data-target="dropdown6">Emmanuel</a>
+            <a class="btn-large waves-effect waves-light blue lighten-1 dropdown-trigger" href="#" data-target="dropdown7">Aldair</a>
+
+        <br><br>
+
+      </div>
+      <div class="section text-center">
+
+
+	{% block content %}
+	<h2>	Bloque de contenido		</h2>
+	{% endblock %}
+
+
+	{% block footer %}
+	{% endblock%}
+      </div>
+    </div>
+  </div>
+  <footer class="footer footer-default">
+    <div class="container">
+      <div class="copyright float-right">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>, Creado con <i class="material-icons">favorite</i>por
+        <a href="https://www.facebook.com/aleex.aguirree.7" target="blank">Alejandro Aguirre</a>
+
+      </div>
+    </div>
+  </footer>
+          <script src="{% static 'assets/js/core/jquery.min.js' %}"></script>
+          <script src="{% static 'assets/js/core/popper.min.js' %}"></script>
+          <script src="{% static 'assets/js/core/bootstrap-material-design.min.js'%}"></script>
+          <script src="{% static 'assets/js/plugins/moment.min.js' %}"></script>
+
+
+          <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+          <script src="{% static 'assets/js/plugins/bootstrap-datetimepicker.js' %}"></script>
+
+          <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+          <script src="{% static 'assets/js/plugins/nouislider.min.js' %}"></script>
+
+  <!--	Plugin for Sharrre btn -->
+          <script src="{% static 'assets/js/plugins/jquery.sharrre.js' %}"></script>
+
+<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+          <script src="{% static 'assets/js/material-kit.min.js' %}"></script>
+ <!--  Scripts-->
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="{% static 'js/materialize.min.js' %}"></script>
+     <script src="{% static 'js/init.js'%}"></script>
+    <script>
+        $(document).ready(function() {
+            $(".dropdown-trigger").dropdown();
+            $('select').formSelect();
+            $('.collapsible').collapsible();
+            $('.datepicker').datepicker({
+                format: 'yyyy-mm-dd'
+            });
+            $('.button-collapse').sideNav({});
+            $('.materialboxed').materialbox();
+            $(".button-collapse").sideNav();
+            $('.scrollspy').scrollSpy();
+            $('.modal').modal();
+        });
+    </script>
+	{% block extrajs %}
+	{% endblock %}
+
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+{% extends 'base/base.html' %}
+ {% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h4>Filtrar por:</h4>
+        <form method="get">
+            <p>
+                idusuario: &nbsp{{ filter.form.idusuario}} &nbsp
+                usuario: &nbsp {{ filter.form.usuario }} &nbsp
+                password: &nbsp {{ filter.form.password }} &nbsp
+                last_access: &nbsp {{ filter.form.last_acces }} &nbsp
+                datos_empresa: &nbsp {{ filter.form.datos_empresa }} &nbsp
+
+                <button class="btn blue" type="submit">Filtrar</button>
+            </p>
+        </form>
+
+        <table class="striped">
+	        <thead>
+		        <tr>
+			        <td>{{ idusuario }}</td>
+			        <td>{{ usuario }}</td>
+			        <td>{{password }}</td>
+			        <td>{{ last_access }}</td>
+			        <td>{{datos_empresa }}</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% if filter.qs %}
+                {% for usuario in filter.qs %}
+		        <tr>
+			        <td>{{ usuario.idusuario }}</td>
+			        <td>{{ usuario.usuario }}</td>
+			        <td>{{ usuario.password }}</td>
+			        <td>{{ usuario.last_acces }}</td>
+			        <td>{{ usuario.datos_empresa }}</td>
+			        <td>
+				        <a class="btn" href="{% url 'usuario:usuario_mostrar' usuario.usuario%}"><i class="material-icons">zoom_in</i></a>
+                        <a class="btn blue" href="{% url 'usuario:usuario_editar' usuario.usuario%}"><i class="material-icons">create</i></a>
+                        <a class="btn red" href="{% url 'usuario:usuario_eliminar' usuario.usuario %}"><i class="material-icons">delete</i></a>
+			        </td>
+		        </tr>
+		        {% endfor %}
+                 {% else %}
+		            <h1>No hay registros de usuario</h1>
+		        {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <ul class="pagination center">
+	            <li>
+		        {% if page_obj.has_previous %}
+       	            <a class="btn blue" href="?page={{ page_obj.previous_page_number }}"><i class="material-icons">navigate_before</i></a>
+		        {% endif %}
+                </li>
+	            <li>
+		        {% if page_obj.has_next %}
+     	            <a class="btn red" href="?page={{ page_obj.next_page_number }}"><i class="material-icons">navigate_next</i></a>
+    	        {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+ {% endblock%}

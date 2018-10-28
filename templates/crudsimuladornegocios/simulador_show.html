@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <p><strong>id_empresa: </strong>{{ object.id_empresa }} </p>
+        <p><strong>usuario: </strong>{{ object.usuario_idusuario }} </p>
+        <p><strong>nombre de empresa: </strong>{{ object.nombre_empresa }} </p>
+        <p><strong>dias de produccion: </strong>{{ object.dias_produccion }} </p>
+        <p><strong>numero de servicios: </strong>{{ object.numero_servicios }} </p>
+        <p><strong>numero de socios </strong>{{ object.no_socios }} </p>
+        <p><strong> denominacion social</strong>{{ object.denominacion_social}} </p>
+        <p><strong>rfc</strong>{{ object.rfc }} </p>
+        <p><strong>telefono</strong>{{ object.telefono }} </p>
+        <p><strong>sitio web</strong>{{ object.sitio_web }} </p>
+        <p><strong>email</strong>{{ object.email }} </p>
+        <p><strong>calle domicilio</strong>{{ object.calle_domicilio }} </p>
+        <p><strong>codigo postal</strong>{{ object.codigo_postal }} </p>
+        <p><strong>ciudad de la empresa</strong>{{ object.ciudad_empresa }} </p>
+        <p><strong>estado de la empresa</strong>{{ object.estado_empresa }} </p>
+
+        <a class= "btn" href="{% url 'datos_empresa:datos_empresa_listar' %}">Ok</a>
+        <a class= "btn blue" href="{% url 'datos_empresa:datos_empresa_editar' objecto.id_empresa%}"><i class="material-icons">create</i></a>
+        <a class="btn red" href="{% url 'datos_empresa:datos_empresa_eliminar' object.id_empresa %}"><i class="material-icons">delete</i></a>
+    </div>
+</div>
+
+
+{% endblock %}

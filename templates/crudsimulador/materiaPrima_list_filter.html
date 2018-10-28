@@ -1,0 +1,71 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h4>Filtrar por:</h4>
+        <form method="get">
+            <p>
+                id Materia Prima Insumos : &nbsp{{ filter.form.idmateriaPrimaInsumos }} &nbsp
+                concepto : &nbsp {{ filter.form.concepto }} &nbsp;&nbsp;
+                <button class="btn blue" type="submit">Filtrar</button>
+            </p>
+        </form>
+        <table class="striped">
+	        <thead>
+		        <tr>
+                  <td>id Materia Prima</td>
+			        <td>concepto</td>
+			        <td>unidad de medida</td>
+			        <td>precio unitario</td>
+                    <td>cantidad</td>
+			        <td>estimacion mensual</td>
+                    <td>estimacion anual</td>
+                    <td>id empresa</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% if filter.qs %}
+                {% for materiaPrimaInsumos in filter.qs %}
+		        <tr>
+			       <td>{{ materiaPrimaInsumos.idmateriaPrimaInsumos }}</td>
+			        <td>{{ materiaPrimaInsumos.concepto }}</td>
+			        <td>{{ materiaPrimaInsumos.unidadMedida }}</td>
+			        <td>{{ materiaPrimaInsumos.precioUnitario }}</td>
+			        <td>{{ materiaPrimaInsumos.cantidad }}</td>
+			        <td>{{ materiaPrimaInsumos.estimacionMensual }}</td>
+			        <td>{{ materiaPrimaInsumos.estimacionAnual }}</td>
+                    <td>{{ materiaPrimaInsumos.id_empresa }}</td>
+			        <td>
+				        <a class="btn" href="{% url 'materiaPrima:materiaPrima_mostrar' materiaPrimaInsumos.idmateriaPrimaInsumos %}"><i class="material-icons">zoom_in</i></a>
+                        <a class="btn blue" href="{% url 'materiaPrima:materiaPrima_editar' materiaPrimaInsumos.idmateriaPrimaInsumos %}"><i class="material-icons">create</i></a>
+                        <a class="btn red" href="{% url 'materiaPrima:materiaPrima_eliminar' materiaPrimaInsumos.idmateriaPrimaInsumos %}"><i class="material-icons">delete</i></a>
+			        </td>
+		        </tr>
+		        {% endfor %}
+
+                {% else %}
+		            <h1>No hay registros</h1>
+		        {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <ul class="pagination center">
+	            <li>
+		        {% if page_obj.has_previous %}
+       	            <a class="btn blue" href="?page={{ page_obj.previous_page_number }}"><i class="material-icons">navigate_before</i></a>
+		        {% endif %}
+                </li>
+	            <li>
+		        {% if page_obj.has_next %}
+     	            <a class="btn red" href="?page={{ page_obj.next_page_number }}"><i class="material-icons">navigate_next</i></a>
+    	        {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock%}

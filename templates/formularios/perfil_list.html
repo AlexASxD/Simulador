@@ -1,0 +1,63 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-ml-auto mr-auto">
+        <table class="table-bordered">
+	        <thead>
+		        <tr>
+                    <td>Id del perfil: </td>
+                    <td>Nombre del usuario: </td>
+                    <td>Apellido Paterno: </td>
+                    <td>Apellido Materno: </td>
+                    <td>RFC Del Usuario: </td>
+                    <td>Correo Eletronico: </td>
+                    <td>Telefono: </td>
+                    <td>Domicilio: </td>
+                    <td>Colonia: </td>
+                    <td>Codigo Postal: </td>
+                    <td>Ciudad: </td>
+                    <td>Estado: </td>
+                </tr>
+            </thead>
+            <tbody>
+		        {% if object_list %}
+		        {% for perfil_usuario in object_list %}
+		        <tr>
+			        <td>{{ perfil_usuario.idperfil}}</td>
+			        <td>{{ perfil_usuario.nombre_usuario }}</td>
+			        <td>{{ perfil_usuario.apellido_p_usuario }}</td>
+			        <td>{{ perfil_usuario.apellido_m_usuario }}</td>
+			        <td>{{ perfil_usuario.rfc_usuario }}</td>
+			        <td>{{ perfil_usuario.email_usuario }}</td>
+                    <td>{{ perfil_usuario.telefono_usuario }}</td>
+                    <td>{{ perfil_usuario.domicilio_usuario }}</td>
+                    <td>{{ perfil_usuario.colonia_usuario }}</td>
+                    <td>{{ perfil_usuario.codigo_postal_usuario }}</td>
+                    <td>{{ perfil_usuario.ciudad_usuario }}</td>
+                    <td>{{ perfil_usuario.estado_usuario }}</td>
+                    <td>
+                        <a class="btn blue" href="{% url 'perfil_usuario:perfil_modificar' perfil_usuario.idperfil %}"><i class="material-icons">create</i></a>
+                        <a class="btn red" href="{% url 'perfil_usuario:perfil_eliminar' perfil_usuario.idperfil %}"><i class="material-icons">delete</i></a>
+			        </td>
+		        </tr>
+		        {% endfor %}
+
+                {% else %}
+		            <h1>No hay registros de personas</h1>
+		        {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+
+{% endblock%}

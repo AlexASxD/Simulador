@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-ml-auto mr-auto">
+        <table class="table-bordered">
+	        <thead>
+		        <tr>
+                    <td>Id mano de obra comisiones venta: </td>
+                    <td>concepto: </td>
+                    <td>Ventas Mensuales: </td>
+                    <td>Comision: </td>
+                    <td>Total Empleado: </td>
+                    <td>Costo Anual: </td>
+                    <td>Id De La Empresa: </td>
+                </tr>
+            </thead>
+            <tbody>
+		        {% if object_list %}
+		        {% for manoObraComisionesVenta in object_list %}
+		        <tr>
+			        <td>{{ manoObraComisionesVenta.idmanoObraComisionesVenta}}</td>
+			        <td>{{ manoObraComisionesVenta.concepto }}</td>
+			        <td>{{ manoObraComisionesVenta.ventas_mensuales }}</td>
+			        <td>{{ manoObraComisionesVenta.comision }}</td>
+			        <td>{{ manoObraComisionesVenta.total_empleados }}</td>
+			        <td>{{ manoObraComisionesVenta.costo_anual }}</td>
+                    <td>{{ manoObraComisionesVenta.datos_empresa_id_empresa }}</td>
+                    <td>
+                        <a class="btn blue" href="{% url 'mcomisiones:mocv_update' manoObraComisionesVenta.idmanoObraComisionesVenta %}"><i class="material-icons">create</i></a>
+                        <a class="btn red" href="{% url 'mcomisiones:mocv_delete' manoObraComisionesVenta.idmanoObraComisionesVenta %}"><i class="material-icons">delete</i></a>
+			        </td>
+		        </tr>
+		        {% endfor %}
+
+                {% else %}
+		            <h1>No hay registros de personas</h1>
+		        {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+
+{% endblock%}

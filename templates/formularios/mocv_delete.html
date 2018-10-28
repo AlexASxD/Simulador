@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+            <form method="post">
+                {% csrf_token %}
+                <h3>¿Desea eliminar el registro de {{ object.concepto }}?</h3>
+                <button class="btn btn-danger" type="submit">Sí, eliminar</button>
+                <a class= "btn btn-default" href="{% url 'mcomisiones:mocv_list' %}">Cancelar</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <p><strong>id Materia Prima : </strong>{{ object.idmateriaPrimaInsumos }} </p>
+        <p><strong>conceptos: </strong>{{ object.concepto }} </p>
+        <p><strong>unidad de medida: </strong>{{ object.unidadMedida }} </p>
+        <p><strong>precio unitario: </strong>{{ object.precioUnitario }} </p>
+        <p><strong>cantidad: </strong>{{ object.cantidad }} </p>
+        <p><strong>estimacion mensual: </strong>{{ object.estimacionMensual }} </p>
+        <p><strong>estimacion anual: </strong>{{ object.estimacionAnual }} </p>
+        <p><strong>id empresa: </strong>{{ object.id_empresa }} </p>
+
+
+        <a class= "btn" href="{% url 'materiaPrima:materiaPrima_listar' %}">Ok</a>
+        <a class= "btn blue" href="{% url 'materiaPrima:materiaPrima_editar' object.idmateriaPrimaInsumos%}"><i class="material-icons">create</i></a>
+        <a class="btn red" href="{% url 'materiaPrima:materiaPrima_eliminar' object.idmateriaPrimaInsumos %}"><i class="material-icons">delete</i></a>
+    </div>
+</div>
+
+
+{% endblock %}

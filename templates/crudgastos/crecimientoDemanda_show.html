@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+ {% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <p><strong>idcrecimientoDemanda: </strong>{{ object.idcrecimientoDemanda }} </p>
+        <p><strong>anio: </strong>{{ object.anio }} </p>
+        <p><strong>crecimiento: </strong>{{ object.crecimiento }} </p>
+        <p><strong>conceptoCrecimientoDemanda: </strong>{{ object.conceptoCrecimientoDemanda_idccd }} </p>
+        <p><strong>datosempresa: </strong>{{ object.datos_empresa_id_empresa }} </p>
+
+         <a class= "btn" href="{% url 'crecimientoDemanda:crecimientoDemanda_listar' %}">Ok</a>
+        <a class= "btn blue" href="{% url 'crecimientoDemanda:crecimientoDemanda_editar' object.idcrecimientoDemanda%}"><i class="material-icons">create</i></a>
+        <a class="btn red" href="{% url 'crecimientoDemanda:crecimientoDemanda_eliminar' object.idcrecimientoDemanda %}"><i class="material-icons">delete</i></a>
+    </div>
+</div>
+ {% endblock %}

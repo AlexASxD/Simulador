@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <p><strong>idtipoGasto: </strong>{{ object.idtipoGasto }} </p>
+        <p><strong>concepto: </strong>{{ object.concepto }} </p>
+
+        <a class= "btn" href="{% url 'tipoGastoOperativo:tipoGastoOperativo_listar' %}">Ok</a>
+        <a class= "btn blue" href="{% url 'tipoGastoOperativo:tipoGastoOperativo_editar' object.idtipoGasto%}"><i class="material-icons">create</i></a>
+        <a class= "btn red" href="{% url 'tipoGastoOperativo:tipoGastoOperativo_eliminar' object.idtipoGasto %}"><i class="material-icons">delete</i></a>
+    </div>
+</div>
+
+
+{% endblock %}
+
+

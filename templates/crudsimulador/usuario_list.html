@@ -1,0 +1,82 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-auto">
+
+{% if object_list %}
+		        {% for Usuario in object_list %}
+<div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{ usuario.idusuario }} </span>
+          <p>{{ usuario.usuario }} {{ Usuario.password  }} {{ usuario.last_access }}</p>
+            <p>{{ usuario.datos_empresa }} </p>
+
+        </div>
+        <div class="card-action">
+          <a class="btn btn-primary" href="#">Ver</a>
+				        <a class="btn btn-primary" href="*">Editar</a>
+				        <a class="btn btn-danger" href="*">Eliminar</a>
+        </div>
+      </div>
+    {% endfor %}
+
+                {% else %}
+		            <h1>No hay registro de usuario</h1>
+		        {% endif %}
+
+    </div>
+</div><div class="row">
+    <div class="col s12 m12 l12">
+        <table class="striped">
+	        <thead>
+		        <tr>
+			        <td>idusuario</td>
+			        <td>usuario</td>
+			        <td>password</td>
+                    <td>last_access</td>
+			        <td>datos_empresa</td>
+
+                </tr>
+            </thead>
+            <tbody>
+		        {% if object_list %}
+		        {% for usuario in object_list %}
+		        <tr>
+			        <td>{{ usuario.idusuario }}</td>
+			        <td>{{ usuario.usuario }}</td>
+			        <td>{{ usuario.password }}</td>
+			        <td>{{ usuario.last_acces }}</td>
+			        <td>{{ usuario.datos_empresa }}</td>
+			        <td>
+				        <a class="btn" href="{% url 'usuario:_mostrar' usuario.idusuario %}"><i class="material-icons">zoom_in</i></a>
+                        <a class="btn blue" href="{% url 'usuario:usuario_editar' usuario.idusuario %}"><i class="material-icons">create</i></a>
+                        <a class="btn red" href="{% url 'usuario:usuario_eliminar' usuario.idusuario %}"><i class="material-icons">delete</i></a>
+			        </td>
+		        </tr>
+		        {% endfor %}
+
+                {% else %}
+		            <h1>No hay registros de usuario</h1>
+		        {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <ul class="pagination">
+	            <li>
+		        {% if page_obj.has_previous %}
+       	            <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+		        {% endif %}
+                </li>
+	            <li>
+		        {% if page_obj.has_next %}
+     	            <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+    	        {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock%}

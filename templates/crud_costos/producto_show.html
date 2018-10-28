@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <p><strong>id producto: </strong>{{ object.id_producto }} </p>
+        <p><strong>producto nombre: </strong>{{ object.producto_nombre }} </p>
+        <p><strong>unidad produccion: </strong>{{ object.unidad_produccion }} </p>
+        <p><strong>produccion mensual: </strong>{{ object.produccion_mensual }} </p>
+        <p><strong>costo unitario: </strong>{{ object.costo_unitario }} </p>
+        <p><strong>margen utilidad: </strong>{{ object.margen_utilidad }} </p>
+        <p><strong>precio publico: </strong>{{ object.precio_publico }} </p>
+        <p><strong>Datos empresa id empresa: </strong>{{ object.datos_empresa_id_empresa }} </p>
+
+        <a class= "btn" href="{% url 'producto:producto_listar' %}">Ok</a>
+        <a class="btn blue" href="{% url 'producto:producto_editar' producto_servicio.id_producto %}"><i class="material-icons">create</i></a>
+        <a class="btn red" href="{% url 'producto:producto_eliminar' producto_servicio.id_producto %}"><i class="material-icons">delete</i></a>
+    </div>
+</div>
+
+
+{% endblock %}

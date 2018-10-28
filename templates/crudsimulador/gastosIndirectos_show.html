@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <p><strong>idgastosIndirectos: </strong>{{ object.idgastosIndirectos }} </p>
+        <p><strong>concepto: </strong>{{ object.concepto }} </p>
+        <p><strong>unidadMedida: </strong>{{ object.unidadMedida }} </p>
+        <p><strong>precioUnitario: </strong>{{ object.precioUnitario }} </p>
+        <p><strong>cantidad: </strong>{{ object.cantidad }} </p>
+        <p><strong>estimacionMensual: </strong>{{ object.estimacionMensual }} </p>
+        <p><strong>estimacionAnual: </strong>{{ object.estimacionAnual }} </p>
+        <p><strong>datos_empresa</strong>{{ object.datos_empresa }} </p>
+
+
+
+        <a class= "btn" href="{% url 'gastosIndirectos:gastosIndirectos_listar' %}">Ok</a>
+        <a class= "btn blue" href="{% url 'gastosIndirectos:gastosIndirectos_editar' object.idgastosIndirectos%}"><i class="material-icons">create</i></a>
+        <a class="btn red" href="{% url 'gastosIndirectos:gastosIndirectos_eliminar' object.idgastosIndirectos %}"><i class="material-icons">delete</i></a>
+    </div>
+</div>
+
+
+{% endblock %}
+

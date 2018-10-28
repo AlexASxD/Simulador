@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+ {% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h4>Filtrar por:</h4>
+        <form method="get">
+            <p>
+                idcrecimientoDemanda: &nbsp{{ filter.form.crecimiento }} &nbsp
+                &nbsp;
+                <button class="btn blue" type="submit">Filtrar</button>
+            </p>
+        </form>
+        <table class="striped">
+	        <thead>
+		        <tr>
+			        <td>idcrecimientoDemanda</td>
+			        <td>anio</td>
+			        <td>crecimiento</td>
+                    <td>conceptoCrecimientoDemanda</td>
+                    <td>datosempresa</td>
+
+                </tr>
+            </thead>
+            <tbody>
+            {% if filter.qs %}
+                {% for crecimientoDemanda in filter.qs %}
+		        <tr>
+			        <td>{{ crecimientoDemanda.idcrecimientoDemanda }}</td>
+			        <td>{{ crecimientoDemanda.anio }}</td>
+                    <td>{{ crecimientoDemanda.crecimiento }}</td>
+                    <td>{{ crecimientoDemanda.conceptoCrecimientoDemanda }}</td>
+                    <td>{{ crecimientoDemanda.datosempresa }}</td>
+
+			        <td>
+				        <a class="btn" href="{% url 'crecimientoDemanda:crecimientoDemanda_mostrar' crecimientoDemanda.idcrecimientoDemanda %}"><i class="material-icons">zoom_in</i></a>
+                        <a class="btn blue" href="{% url 'crecimientoDemanda:crecimientoDemanda_editar' crecimientoDemanda.idcrecimientoDemanda %}"><i class="material-icons">create</i></a>
+                        <a class="btn red" href="{% url 'crecimientoDemanda:crecimientoDemanda_eliminar' crecimientoDemanda.idcrecimientoDemanda %}"><i class="material-icons">delete</i></a>
+			        </td>
+		        </tr>
+		        {% endfor %}
+                 {% else %}
+		            <h1>No hay registros de crecimientoDemanda</h1>
+		        {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <ul class="pagination center">
+	            <li>
+		        {% if page_obj.has_previous %}
+       	            <a class="btn blue" href="?page={{ page_obj.previous_page_number }}"><i class="material-icons">navigate_before</i></a>
+		        {% endif %}
+                </li>
+	            <li>
+		        {% if page_obj.has_next %}
+     	            <a class="btn red" href="?page={{ page_obj.next_page_number }}"><i class="material-icons">navigate_next</i></a>
+    	        {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+ {% endblock%}

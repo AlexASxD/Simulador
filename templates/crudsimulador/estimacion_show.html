@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <p><strong>Numero Anio : </strong>{{ object.numero_anio }} </p>
+        <p><strong>Estimacion: </strong>{{ object.estimacion }} </p>
+        <p><strong>id producto: </strong>{{ object.producto_servicio_id_producto }} </p>
+
+
+        <a class= "btn" href="{% url 'estimacion:estimacion_listar' %}">Ok</a>
+        <a class= "btn blue" href="{% url 'estimacion:estimacion_editar' object.numero_anio %}"><i class="material-icons">create</i></a>
+        <a class="btn red" href="{% url 'estimacion:estimacion_eliminar' object.numero_anio %}"><i class="material-icons">delete</i></a>
+    </div>
+</div>
+
+
+{% endblock %}

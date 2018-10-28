@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m12 l12">
+        <p><strong>idccd:   : </strong>{{ object.idccd}} </p>
+        <p><strong>concepto: </strong>{{ object.concepto }} </p>
+        <p><strong>crecimientoInicial: </strong>{{ object.crecimientoInicial}} </p>
+
+        <a class= "btn" href="{% url 'demanda:conceptoCrecimientoDemanda_listar' %}">Ok</a>
+        <a class= "btn blue" href="{% url 'demanda:conceptoCrecimientoDemanda_editar' objecto.idcc%}"><i class="material-icons">create</i></a>
+        <a class="btn red" href="{% url 'demanda:conceptoCrecimientoDemanda_eliminar' object.idccd %}"><i class="material-icons">delete</i></a>
+    </div>
+</div>
+
+
+{% endblock %}

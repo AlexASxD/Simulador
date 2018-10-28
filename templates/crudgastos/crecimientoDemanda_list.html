@@ -1,0 +1,85 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m6 l4">
+
+{% if object_list %}
+		        {% for crecimientoDemanda in object_list %}
+<div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{ crecimientoDemanda.idcrecimientoDemanda }} </span>
+          <p>{{ crecimientoDemanda.anio }} {{ crecimientoDemanda.crecimiento }} {{ crecimientoDemanda.conceptoCrecimientoDemanda }}</p>
+            <p>{{ crecimientoDemanda.datosempresa }} </p>
+
+        </div>
+        <div class="card-action">
+          <a class="btn btn-primary" href="#">Ver</a>
+				        <a class="btn btn-primary" href="*">Editar</a>
+				        <a class="btn btn-danger" href="*">Eliminar</a>
+        </div>
+      </div>
+    {% endfor %}
+
+                {% else %}
+		            <h1>No hay registros de crecimientoDemanda</h1>
+		        {% endif %}
+
+    </div>
+</div><div class="row">
+    <div class="col s12 m12 l12">
+        <table class="striped">
+	        <thead>
+		        <tr>
+			        <td>idcrecimientoDemanda</td>
+			        <td>anio</td>
+			        <td>crecimiento</td>
+                    <td>conceptoCrecimientoDemanda</td>
+			        <td>datosempresa</td>
+
+                </tr>
+            </thead>
+            <tbody>
+		        {% if object_list %}
+		        {% for crecimientoDemanda in object_list %}
+		        <tr>
+			        <td>{{ crecimientoDemanda.idcrecimientoDemanda }}</td>
+			        <td>{{ crecimientoDemanda.anio }}</td>
+			        <td>{{ crecimientoDemanda.crecimiento }}</td>
+			        <td>{{ crecimientoDemanda.conceptoCrecimientoDemanda }}</td>
+			        <td>{{ crecimientoDemanda.datosempresa }}</td>
+
+			        <td>
+                        <a class="btn" href="{% url 'crecimientoDemanda:crecimientoDemanda_mostrar' crecimientoDemanda.idcrecimientoDemanda %}"><i class="material-icons">zoom_in</i></a>
+                        <a class="btn blue" href="{% url 'crecimientoDemanda:crecimientoDemanda_editar' crecimientoDemanda.idcrecimientoDemanda %}"><i class="material-icons">create</i></a>
+                        <a class="btn red" href="{% url 'crecimientoDemanda:crecimientoDemanda_eliminar' crecimientoDemanda.idcrecimientoDemanda %}"><i class="material-icons">delete</i></a>
+
+			        </td>
+		        </tr>
+		        {% endfor %}
+
+                {% else %}
+		            <h1>No hay registros de crecimientoDemanda</h1>
+		        {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <ul class="pagination">
+	            <li>
+		        {% if page_obj.has_previous %}
+       	            <a class="btn red" href="?page={{ page_obj.previous_page_number }}"><i class="material-icons">navigate_before</i></a>
+		        {% endif %}
+                </li>
+	            <li>
+		        {% if page_obj.has_next %}
+     	             <a class="btn green" href="?page={{ page_obj.next_page_number }}"><i class="material-icons">navigate_next</i></a>
+    	        {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock%}

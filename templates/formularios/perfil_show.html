@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 ml-auto mr-auto">
+        <p><strong>id del perfil: </strong>{{ object.idperfil }} </p>
+        <p><strong>Nombre del usuario: </strong>{{ object.nombre_usuario }} </p>
+        <p><strong>Apellido Paterno: </strong>{{ object.apellido_p_usuario }} </p>
+        <p><strong>Apellido Materno: </strong>{{ object.apellido_m_usuario }} </p>
+        <p><strong>RFC: </strong>{{ object.rfc_usuario}} </p>
+        <p><strong>Correo Eletronico: </strong>{{ object.email_usuario }} </p>
+        <p><strong>Numero De Telefono: </strong>{{ object.telefono_usuario}} </p>
+        <p><strong>Domicilio: </strong>{{ object.domicilio_usuario}} </p>
+        <p><strong>Colonia: </strong>{{ object.colonia_usuario}} </p>
+        <p><strong>Codigo Postal: </strong>{{ object.codigo_postal_usuario}} </p>
+        <p><strong>Ciudad: </strong>{{ object.ciudad_usuario}} </p>
+        <p><strong>Estado: </strong>{{ object.estado_usuario}} </p>
+
+
+        <a class= "btn btn-danger" href="{% url 'perfil_usuario:perfil_listar' %}">Ok</a>
+        <a class= "btn btn-info" href="{% url 'perfil_usuario:perfil_modificar' perfil_usuario.idperfil %}"><i class="material-icons">create</i></a>
+        <a class="btn btn-success" href="{%  url 'perfil_usuario:perfil_eliminar' perfil_usuario.idperfil %}"><i class="material-icons">delete</i></a>
+    </div>
+</div>
+
+
+
+{% endblock %}
